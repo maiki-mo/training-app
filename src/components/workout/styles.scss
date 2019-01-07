@@ -1,10 +1,13 @@
 .workout--container {
   border: 1px solid lightblue;
-  margin: 0 10px 0 0;
-  padding: 0 10px;
   border-radius: 4px;
-  display: flex;
-  flex-direction: row;
+  padding: 0 10px;
+  margin: 0 5px;
+  
+  &__title-container {
+    display: flex;
+    flex-direction: row;
+  }
 
   h2 {
     margin: 4px 0;
@@ -12,6 +15,8 @@
 
   &__title {
     font-family: 'Thasadith', sans-serif;
+    font-size: 20px;
+    padding-top: 4px;
     color: black;
     padding-bottom: 2px;
   }
@@ -19,6 +24,7 @@
   &__icons {
     display: flex;
     flex-direction: row;
+    width: 100%;
     margin-left: 20px;
 
     img {
@@ -29,4 +35,26 @@
 
   }
 
+  &__collapsed {
+    animation-name: collapse;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+  }
+
+  &__expanded {
+    animation-name: expand;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+  }
+
+}
+
+@keyframes collapse {
+  from { height: 100px; }
+  to { height: 0; }
+}
+
+@keyframes expand {
+  from { height: 0; }
+  to { height: 100px; }
 }
