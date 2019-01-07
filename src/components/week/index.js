@@ -15,11 +15,11 @@ class Week extends Component {
   };
 
   render() {
-    const { week, finished, workouts, date } = this.state.week;
+    const { week, finished, workouts, date, expected } = this.state.week;
 
     return(
       <div className="week--container">
-        <Title week={week} date={date} finished={finished} />
+        <Title week={week} date={date} finished={finished} expected={expected} />
         <WorkoutList workouts={workouts} />
       </div>
     )

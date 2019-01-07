@@ -1,8 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Staatliches|Thasadith');
+@import url('https://fonts.googleapis.com/css?family=Thasadith');
 
 .app {
   max-width: 1350px;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
+}
+
+::-webkit-scrollbar {
+  display: none; 
 }
