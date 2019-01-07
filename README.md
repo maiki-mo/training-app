@@ -8,6 +8,16 @@ A training application to help me manage a Marathon schedule.
 
 Right now data is based on read and write streams.  There may eventually be a mock server / dedicated server in the future, if I plan to extend this into a mobile app.
 
+## Dependencies
+
+### React
+
+This is app was built using [create-react-app], running version [16.7].
+
+### Node
+
+In order to run smoothly, version [10.14.1] of Node should be installed.
+
 ## Scripts
 
 In the project directory, you can run:
