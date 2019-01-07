@@ -1,25 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import { Provider } from 'react-redux';
+
+import Workouts from './data/workouts.json';
+import Week from './components/week';
+
+// import Store from './Store';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.workouts = JSON.parse(JSON.stringify(Workouts))
+    this.state = {
+      workouts: this.workouts,
+    };
+
+    console.log(this.state);
+
+  };
+
   render() {
+    const { weeks } = this.state.workouts;
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        { weeks.map((week) => {
+          return (
+            <Week week={week} />
+          );
+        }) }
       </div>
     );
   }
