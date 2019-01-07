@@ -12,7 +12,7 @@ Right now data is based on read and write streams.  There may eventually be a mo
 
 ### React
 
-This is app was built using [create-react-app], running version `16.7.0`.
+This is app was built using `create-react-app`, running version `16.7.0`.
 
 ### Node
 

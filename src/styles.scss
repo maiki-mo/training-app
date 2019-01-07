@@ -5,6 +5,24 @@
   margin: 0 auto;
   display: flex;
   flex-direction: row;
+
+  &--week {
+
+    &__container {
+      max-height: 90vh;
+      overflow: auto;
+
+      &--title {
+        padding-left: 30px;
+        font-family: 'Thasadith', sans-serif;
+        font-weight: bold;
+        font-size: 22px;
+      }
+
+    }
+
+  }
+
 }
 
 ::-webkit-scrollbar {
