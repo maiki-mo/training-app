@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import { Workout } from './../../components/workout/';
+import Title from './title';
+import WorkoutList from './workout-list';
 
 import './styles.scss';
 
@@ -18,13 +19,8 @@ class Week extends Component {
 
     return(
       <div className="week--container">
-        <h1>{ `week ${week}: ${date}` }</h1>
-        <h4>{ finished.toString() }</h4>
-        <ul style={{ display: 'flex', flexDirection: 'row' }}>
-          { workouts.map((workout) => {
-            return <Workout workout={workout} />
-          })}
-        </ul>
+        <Title week={week} date={date} finished={finished} />
+        <WorkoutList workouts={workouts} />
       </div>
     )
   }

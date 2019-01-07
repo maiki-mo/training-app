@@ -12,11 +12,11 @@ Right now data is based on read and write streams.  There may eventually be a mo
 
 ### React
 
-This is app was built using [create-react-app], running version [16.7].
+This is app was built using [create-react-app], running version `16.7`.
 
 ### Node
 
-In order to run smoothly, version [10.14.1] of Node should be installed.
+In order to run smoothly, version `10.14.1` of Node should be installed.
 
 ## Scripts
 

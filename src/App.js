@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 
 import Workouts from './data/workouts.json';
 import Week from './components/week';
+import Tray from './components/tray';
+
+import './styles.scss';
 
 // import Store from './Store';
 
@@ -14,20 +17,23 @@ class App extends Component {
       workouts: this.workouts,
     };
 
-    console.log(this.state);
-
   };
 
   render() {
     const { weeks } = this.state.workouts;
 
     return (
-      <div className="App">
-        { weeks.map((week) => {
-          return (
-            <Week week={week} />
-          );
-        }) }
+      <div className="app">
+        <div className="app--container">
+          { weeks.map((week, i) => {
+            return (
+              <Week key={`${week} - ${i}`} week={week} />
+            );
+          }) }
+        </div>
+        <div>
+          <Tray />
+        </div>
       </div>
     );
   }

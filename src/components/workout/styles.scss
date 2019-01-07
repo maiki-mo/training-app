@@ -1,5 +1,32 @@
 .workout--container {
-  width: 300px;
-  height: 150px;
   border: 1px solid lightblue;
+  margin: 0 10px 15px;
+  padding: 0 10px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+
+  h2 {
+    margin: 4px 0;
+  }
+
+  &__title {
+    font-family: 'Thasadith', sans-serif;
+    color: black;
+    padding-bottom: 2px;
+  }
+
+  &__icons {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+
+    img {
+      width: 16px;
+      height: 16px;
+      margin: 14px 5px;
+    }
+
+  }
+
 }
