@@ -1,47 +1,18 @@
 import React, { Component } from 'react';
-// import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 
-import Workouts from './data/workouts.json';
-import Week from './components/week';
-import Tray from './components/tray';
+import MainApp from './components/application/'
 
-import './styles.scss';
+import store from './redux/store';
 
-// import Store from './Store';
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.workouts = JSON.parse(JSON.stringify(Workouts))
-    this.state = {
-      workouts: this.workouts,
-    }
-  }
-
+class Application extends Component {
   render() {
-    const { weeks } = this.state.workouts;
-    const title = () => {
-      return (
-        <pre className="app--week__container--title">workout weeks    --</pre>
-      );
-    }
-
     return (
-      <div className="app">
-        <div className="app--week__container">
-          { title() }
-          { weeks.map((week, i) => {
-            return (
-              <Week key={`${week} - ${i}`} week={week} />
-            );
-          }) }
-        </div>
-        <div className="app--tray__container">
-          <Tray />
-        </div>
-      </div>
+      <Provider store={store}>
+        <MainApp />
+      </Provider>
     );
   }
 }
 
-export default App;
+export default Application;
