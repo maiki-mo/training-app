@@ -20,7 +20,7 @@ class MainApp extends Component {
   }
 
   render() {
-    const { weeks } = this.props.workouts.workouts;
+    const { weeks } = this.props.workouts;
     const title = () => {
       return (
         <pre className="app--week__container--title">workout weeks    --</pre>
@@ -46,7 +46,7 @@ class MainApp extends Component {
 }
 
 const mapStateToProps = state => ({
-  workouts: state.workouts,
+  workouts: state.workouts.workouts,
 });
 
 export default connect(mapStateToProps, { fetchWorkouts })(MainApp);
