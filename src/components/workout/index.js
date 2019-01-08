@@ -23,13 +23,14 @@ class Workout extends Component {
         <Divider style={{ marginTop: '0', backgroundColor: 'lightblue', borderBottom: 0 }} />
         <Checkbox label={'completed'} />
         <div style={{ marginTop: '8px', marginBottom: '8px' }}>
-          { `expected distance: ${distance} mi` }
+          { `distance: ${distance} mi` }
         </div>
         <Form.Input
           type="text"
           name="name"
           placeholder="name"
           value={'name'}
+          size={'mini'}
         />
       </Form>
     )
