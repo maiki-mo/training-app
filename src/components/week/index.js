@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import Title from './title';
-import WorkoutList from './workout-list';
+import Title from './../title';
+import WorkoutList from './../workout-list';
 
 import './styles.scss';
 

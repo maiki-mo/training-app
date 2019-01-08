@@ -1,5 +1,5 @@
 import React from 'react';
-import Workout from './../../workout/index';
+import Workout from './../workout';
 
 const WorkoutList = ({workouts}) => {
   return (
