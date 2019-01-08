@@ -8,4 +8,4 @@ export default function index() {
       <h1>{ 'weeks' }</h1>
     </div>
   );
-};
+}

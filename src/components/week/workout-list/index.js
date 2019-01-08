@@ -9,6 +9,6 @@ const WorkoutList = ({workouts}) => {
         })}
     </ul>
   );
-};
+}
 
 export default WorkoutList;

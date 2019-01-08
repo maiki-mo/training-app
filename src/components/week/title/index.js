@@ -8,4 +8,4 @@ export default function index({week, date, finished, expected}) {
       <h4 className="week--container__title--expected">{ 'expected: ' + expected.toString() }</h4>
     </div>
   );
-};
+}

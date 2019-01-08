@@ -15,9 +15,8 @@ class App extends Component {
     this.workouts = JSON.parse(JSON.stringify(Workouts))
     this.state = {
       workouts: this.workouts,
-    };
-
-  };
+    }
+  }
 
   render() {
     const { weeks } = this.state.workouts;
@@ -25,7 +24,7 @@ class App extends Component {
       return (
         <pre className="app--week__container--title">workout weeks    --</pre>
       );
-    };
+    }
 
     return (
       <div className="app">
