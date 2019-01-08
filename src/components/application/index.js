@@ -20,6 +20,7 @@ class MainApp extends Component {
   }
 
   render() {
+    const { weeks } = this.props.workouts.workouts;
     const title = () => {
       return (
         <pre className="app--week__container--title">workout weeks    --</pre>
@@ -28,7 +29,7 @@ class MainApp extends Component {
 
     return (
       <div className="app">
-        {/* <div className="app--week__container">
+        <div className="app--week__container">
           { title() }
           { weeks.map((week, i) => {
             return (
@@ -38,7 +39,7 @@ class MainApp extends Component {
         </div>
         <div className="app--tray__container">
           <Tray />
-        </div> */}
+        </div>
       </div>
     );
   }
