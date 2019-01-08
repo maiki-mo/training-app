@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Transition } from 'semantic-ui-react';
+import { Form, Transition } from 'semantic-ui-react';
 
 import Edit from './images/edit.png';
 import View from './images/view.png';
@@ -11,56 +11,39 @@ class Workout extends Component {
     super(props);
     
     this.state = {
-      collapsed: false,
+      visible: false,
     };
-  };
-
-  handleEditToggle = () => {
-    const collapsed = !this.state.collapsed;
-
-    this.setState({
-      collapsed,
-    });
-  };
-
-  handleViewToggle = () => {
-    const collapsed = !this.state.collapsed; 
-
-    this.setState({
-      collapsed,
-    });
   };
 
   showCollapsableElements = () => {
     return (
-      <form style={{ animationName: 'expand', animationDuration: '.5s', animationFillMode: 'forwards' }}>
-        <label name="completed">{ 'completed' }</label><br />
-        <input type="text"></input>
-      </form>
+      <Form>
+        <Form.Input
+          type="text"
+          name="name"
+          placeholder="name"
+          value={'name'}
+        />
+      </Form>
     );
   };
 
-  hideCollapsableElements = () => {
-    return (
-      <form className="workout--container__collapsed">
-      </form>
-    );
-  }
-
   render(){
     const { workout } = this.props;
-    const { collapsed } = this.state;
+    const { visible } = this.state;
 
     return (
       <div className="workout--container">
       <div className="workout--container__title-container">
         <h2 className="workout--container__title">{ workout.day }</h2>
         <div style={{ textAlign: 'right' }} className="workout--container__icons">
-          <img src={Edit} alt="edit" onClick={ () => { this.handleEditToggle() } } />
-          <img src={View} alt="view" onClick={ () => { this.handleViewToggle() } } />
+          <img src={Edit} alt="edit" onClick={ () => { this.setState({ visible: !this.state.visible }) } } />
+          <img src={View} alt="view" onClick={ () => { this.setState({}) } } />
         </div>
       </div>
-      { collapsed ? this.showCollapsableElements() : this.hideCollapsableElements() }
+      <Transition visible={visible}>
+        { this.showCollapsableElements() }
+      </Transition>
       </div>
     );
   };
