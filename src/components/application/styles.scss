@@ -6,6 +6,15 @@
   display: flex;
   flex-direction: row;
 
+  &--tray {
+    
+    &__container {
+      max-height: 94vh;
+      overflow: auto;
+    }
+
+  }
+
   &--week {
 
     &__container {

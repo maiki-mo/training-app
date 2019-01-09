@@ -2,9 +2,12 @@ import React from 'react';
 
 import './styles.scss';
 
-export default function index() {
+const Tray = ({workouts}) => {
   return (
     <div className="tray--container">
+      { JSON.stringify(workouts) }
     </div>
   );
 }
+
+export default Tray;

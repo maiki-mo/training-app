@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchWorkouts } from './../../redux/actions/workout-actions.js';
 
+import { workoutReduce } from './../../helpers/workout-reducer';
+
 import Week from './../week';
 import Tray from './../tray';
 
@@ -11,26 +13,29 @@ class MainApp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      workouts: this.props.workouts,
+      workouts: [],
     }
   }
 
-  componentWillMount = () => {
-    this.props.fetchWorkouts();
+  componentWillMount = async () => {
+    await this.props.fetchWorkouts();
+
+    this.setState({
+      workouts: this.props.workouts,
+    });
   }
 
   render() {
     const { weeks } = this.props.workouts;
-    const title = () => {
-      return (
-        <pre className="app--week__container--title">workout weeks    --</pre>
-      );
-    }
+    const { workouts } = this.props;
+
+    const trayTitle = () => <pre className="app--week__container--title">weeks    --</pre>;
+    const weekTitle = () => <pre className="app--week__container--title">workout    --</pre>;
 
     return (
       <div className="app">
         <div className="app--week__container">
-          { title() }
+          { weekTitle() }
           { weeks.map((week, i) => {
             return (
               <Week key={`${week} - ${i}`} week={week} />
@@ -38,7 +43,8 @@ class MainApp extends Component {
           }) }
         </div>
         <div className="app--tray__container">
-          <Tray />
+          { trayTitle() }
+          <Tray workouts={workouts} />
         </div>
       </div>
     );
