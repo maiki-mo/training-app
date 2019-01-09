@@ -1,11 +1,15 @@
 import React from 'react';
 
+import TrayItem from './../tray-item';
+
 import './styles.scss';
 
-const Tray = ({workouts}) => {
+const Tray = ({weeks}) => {
   return (
     <div className="tray--container">
-      { JSON.stringify(workouts) }
+      { weeks.map((week, i) => {
+        return <TrayItem key={week.date + '-' + i} week={week} />
+      })}
     </div>
   );
 }

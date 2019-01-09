@@ -10,24 +10,12 @@ import Tray from './../tray';
 import './styles.scss';
 
 class MainApp extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      workouts: [],
-    }
-  }
-
   componentWillMount = async () => {
     await this.props.fetchWorkouts();
-
-    this.setState({
-      workouts: this.props.workouts,
-    });
   }
 
   render() {
     const { weeks } = this.props.workouts;
-    const { workouts } = this.props;
 
     const trayTitle = () => <pre className="app--week__container--title">weeks    --</pre>;
     const weekTitle = () => <pre className="app--week__container--title">workout    --</pre>;
@@ -44,7 +32,7 @@ class MainApp extends Component {
         </div>
         <div className="app--tray__container">
           { trayTitle() }
-          <Tray workouts={workouts} />
+          <Tray weeks={weeks} />
         </div>
       </div>
     );

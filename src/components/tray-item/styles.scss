@@ -1,0 +1,15 @@
+.tray-item--container {
+  border: 1px solid lightblue;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  padding: 15px 10px 0;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border-radius: 4px;
+
+  &:hover {
+    border: 1px solid lightcoral;
+  }
+  
+}

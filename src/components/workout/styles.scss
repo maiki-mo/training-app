@@ -4,6 +4,10 @@
   border-radius: 4px;
   padding: 4px 10px;
   margin: 0 5px;
+
+  &:hover {
+    border: 1px solid lightcoral;
+  }
   
   &__title-container {
     display: flex;
