@@ -16,11 +16,12 @@ class Week extends Component {
 
   render() {
     const { week, finished, workouts, date, expected } = this.state.week;
+    const { weekNumber } = this.props;
 
     return(
       <div className="week--container">
         <Title week={week} date={date} finished={finished} expected={expected} />
-        <WorkoutList workouts={workouts} />
+        <WorkoutList weekNumber={weekNumber} workouts={workouts} />
       </div>
     )
   }

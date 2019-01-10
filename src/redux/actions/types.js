@@ -1,1 +1,4 @@
 export const FETCH_WORKOUTS = 'FETCH_WORKOUTS';
+export const COMPLETE_WORKOUT = 'COMPLETE_WORKOUT';
+export const UPDATE_MILES = 'UPDATE_MILES';
+export const SAVE_WORKOUT = 'SAVE_WORKOUT';

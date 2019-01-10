@@ -26,7 +26,7 @@ class MainApp extends Component {
           { weekTitle() }
           { weeks.map((week, i) => {
             return (
-              <Week key={`${week} - ${i}`} week={week} />
+              <Week weekNumber={i} key={`${week} - ${i}`} week={week} />
             );
           }) }
         </div>
