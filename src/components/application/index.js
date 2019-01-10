@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchWorkouts } from './../../redux/actions/workout-actions.js';
+import { fetchWorkouts, saveWorkouts } from './../../redux/actions/workout-actions.js';
+import { Button } from 'semantic-ui-react';
 
 import { workoutReduce } from './../../helpers/workout-reducer';
 
@@ -23,7 +24,16 @@ class MainApp extends Component {
     return (
       <div className="app">
         <div className="app--week__container">
-          { weekTitle() }
+          <div className="app--week__container--header">
+            { weekTitle() }
+            <Button
+              size={'mini'}
+              style={{ height: '50px', marginTop: '10px', backgroundColor: 'white', border: "1px solid lightblue" }}
+              onClick={() => saveWorkouts(this.props.workouts)}
+            >
+              { 'save workouts' }
+            </Button>
+          </div>
           { weeks.map((week, i) => {
             return (
               <Week weekNumber={i} key={`${week} - ${i}`} week={week} />
@@ -43,4 +53,4 @@ const mapStateToProps = state => ({
   workouts: state.workouts.workouts,
 });
 
-export default connect(mapStateToProps, { fetchWorkouts })(MainApp);
+export default connect(mapStateToProps, { fetchWorkouts, saveWorkouts })(MainApp);

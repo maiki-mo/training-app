@@ -1,4 +1,4 @@
-import { FETCH_WORKOUTS, UPDATE_MILES, COMPLETE_WORKOUT } from './types';
+import { FETCH_WORKOUTS, UPDATE_MILES, COMPLETE_WORKOUT, SAVE_WORKOUT } from './types';
 import Workouts from './../../data/workouts.json';
 
 export const fetchWorkouts = () => {
@@ -12,25 +12,36 @@ export const fetchWorkouts = () => {
 
 export const completeWorkout = (week, day) => {
   return (dispatch) => {
-    dispatch(({
+    dispatch({
       type: COMPLETE_WORKOUT,
       payload: {
         week,
         day,
       },
-    }));
+    });
   };
 }
 
 export const updateMiles = (week, day, miles) => {
   return (dispatch) => {
-    dispatch(({
+    dispatch({
       type: UPDATE_MILES,
       payload: {
         week,
         day,
         miles,
       },
-    }));
+    });
   };
+}
+
+export const saveWorkouts = (workouts) => {
+  return (dispatch) => {
+    dispatch({
+      type: SAVE_WORKOUT,
+      payload: {
+        workouts: JSON.stringify(workouts),
+      }
+    })
+  }
 }

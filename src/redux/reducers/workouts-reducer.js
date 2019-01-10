@@ -17,7 +17,7 @@ export const workoutsReducer = (state = initialState, action) => {
     case UPDATE_MILES:
       newState = {...state};
       newState.workouts.weeks[action.payload.week].workouts[action.payload.day].completedDistance = action.payload.miles;
-      console.log(newState);
+
       return newState;
     case COMPLETE_WORKOUT:
       newState = {...state};
@@ -25,9 +25,7 @@ export const workoutsReducer = (state = initialState, action) => {
       
       return newState;
     case SAVE_WORKOUT:
-      return {
-        ...state,
-      }
+      return state;
     default:
       return state;  
   }
