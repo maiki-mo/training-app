@@ -1,16 +1,15 @@
 import { FETCH_WORKOUTS, UPDATE_MILES, COMPLETE_WORKOUT, SAVE_WORKOUT } from './types';
 import axios from 'axios';
-import Workouts from './../../data/workouts.json';
 
-export const fetchWorkouts = async () => {
-  let workouts;
+export const fetchWorkouts = () => {
+  return async (dispatch) => {
+    let workouts;
   
-  await axios.get('http://localhost:3001/workouts/')
-    .then((res) => {
-      workouts = res.data;
-    });
-    
-  return (dispatch) => {
+    await axios.get('http://localhost:3001/workouts/')
+      .then((res) => {
+        workouts = res.data;
+      });
+      
     dispatch({
       type: FETCH_WORKOUTS,
       payload: JSON.parse(JSON.stringify(workouts)),

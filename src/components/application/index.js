@@ -10,8 +10,8 @@ import Tray from './../tray';
 import './styles.scss';
 
 class MainApp extends Component {
-  componentWillMount = async () => {
-    await this.props.fetchWorkouts();
+  componentWillMount = () => {
+    this.props.fetchWorkouts();
   }
 
   render() {
