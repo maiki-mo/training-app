@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchWorkouts, saveWorkouts } from './../../redux/actions/workout-actions.js';
+import { fetchWorkouts } from './../../redux/actions/workout-actions.js';
+import { saveWorkoutData } from './../../helpers/save-workouts';
 import { Button } from 'semantic-ui-react';
-
-import { workoutReduce } from './../../helpers/workout-reducer';
 
 import Week from './../week';
 import Tray from './../tray';
@@ -29,7 +28,7 @@ class MainApp extends Component {
             <Button
               size={'mini'}
               style={{ height: '50px', marginTop: '10px', backgroundColor: 'white', border: "1px solid lightblue" }}
-              onClick={() => saveWorkouts(this.props.workouts)}
+              onClick={() => saveWorkoutData(this.props.workouts)}
             >
               { 'save workouts' }
             </Button>
@@ -53,4 +52,4 @@ const mapStateToProps = state => ({
   workouts: state.workouts.workouts,
 });
 
-export default connect(mapStateToProps, { fetchWorkouts, saveWorkouts })(MainApp);
+export default connect(mapStateToProps, { fetchWorkouts })(MainApp);

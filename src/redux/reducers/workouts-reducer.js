@@ -24,9 +24,13 @@ export const workoutsReducer = (state = initialState, action) => {
       newState.workouts.weeks[action.payload.week].workouts[action.payload.day].completed = true;
       
       return newState;
+
     case SAVE_WORKOUT:
-      return state;
+      newState = {...state};
+
+      return newState;
     default:
+
       return state;  
   }
 }

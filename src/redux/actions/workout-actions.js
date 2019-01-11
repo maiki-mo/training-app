@@ -1,11 +1,19 @@
 import { FETCH_WORKOUTS, UPDATE_MILES, COMPLETE_WORKOUT, SAVE_WORKOUT } from './types';
+import axios from 'axios';
 import Workouts from './../../data/workouts.json';
 
-export const fetchWorkouts = () => {
+export const fetchWorkouts = async () => {
+  let workouts;
+  
+  await axios.get('http://localhost:3001/workouts/')
+    .then((res) => {
+      workouts = res.data;
+    });
+    
   return (dispatch) => {
     dispatch({
       type: FETCH_WORKOUTS,
-      payload: JSON.parse(JSON.stringify(Workouts)),
+      payload: JSON.parse(JSON.stringify(workouts)),
     });
   };
 }
@@ -35,13 +43,13 @@ export const updateMiles = (week, day, miles) => {
   };
 }
 
-export const saveWorkouts = (workouts) => {
+export const saveWorkouts = (week) => {
   return (dispatch) => {
     dispatch({
-      type: SAVE_WORKOUT,
+      type: UPDATE_MILES,
       payload: {
-        workouts: JSON.stringify(workouts),
-      }
-    })
-  }
+        week,
+      },
+    });
+  };
 }
