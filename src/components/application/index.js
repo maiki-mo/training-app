@@ -16,7 +16,6 @@ class MainApp extends Component {
 
   render() {
     const { weeks } = this.props.workouts;
-
     const trayTitle = () => <pre className="app--week__container--title">weeks    --</pre>;
     const weekTitle = () => <pre className="app--week__container--title">workout    --</pre>;
 

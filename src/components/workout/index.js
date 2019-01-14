@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Form, Transition, Checkbox, Divider, Segment } from 'semantic-ui-react';
+import { Form, Transition, Checkbox, Divider } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { completeWorkout, updateMiles } from './../../redux/actions/workout-actions';
+import { completeWorkout, unCompleteWorkout, updateMiles } from './../../redux/actions/workout-actions';
 
 import Edit from './images/edit.png';
 import View from './images/view.png';
@@ -15,18 +15,26 @@ class Workout extends Component {
     this.state = {
       visible: false,
       viewInfo: false,
+      checked: this.props.workout.completed,
     }
   }
 
+  handleCheckedChange = () => {
+    const { weekNumber } = this.props;
+
+    this.state.checked ? this.props.unCompleteWorkout(weekNumber, this.props.day) : this.props.completeWorkout(weekNumber, this.props.day);
+  }
+
   showCollapsableElements = (workout, week) => {
-    const { distance, completedDistance } = workout;
+    const { distance, completedDistance, completed } = workout;
 
     return (
       <Form style={{ marginBottom: '8px' }}>
         <Divider style={{ marginTop: '0', backgroundColor: 'lightblue', borderBottom: 0 }} />
         <Checkbox
           label={'completed'}
-          onClick={() => this.props.completeWorkout(week, this.props.day)}
+          checked={completed}
+          onClick={() => this.handleCheckedChange()}
         />
         <div style={{ marginTop: '8px', marginBottom: '8px' }}>
           { `distance: ${distance} mi` }
@@ -64,4 +72,4 @@ class Workout extends Component {
   }
 }
 
-export default connect(null, { completeWorkout, updateMiles })(Workout);
+export default connect(null, { completeWorkout, unCompleteWorkout, updateMiles })(Workout);

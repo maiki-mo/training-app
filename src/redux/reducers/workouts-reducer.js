@@ -1,4 +1,4 @@
-import { FETCH_WORKOUTS, COMPLETE_WORKOUT, UPDATE_MILES, SAVE_WORKOUT } from './../actions/types';
+import { FETCH_WORKOUTS, COMPLETE_WORKOUT, UNCOMPLETE_WORKOUT, UPDATE_MILES, SAVE_WORKOUT } from './../actions/types';
 
 const initialState = {
   workouts: {
@@ -22,9 +22,13 @@ export const workoutsReducer = (state = initialState, action) => {
     case COMPLETE_WORKOUT:
       newState = {...state};
       newState.workouts.weeks[action.payload.week].workouts[action.payload.day].completed = true;
-      
-      return newState;
 
+      return newState;
+    case UNCOMPLETE_WORKOUT:
+      newState = {...state};
+      newState.workouts.weeks[action.payload.week].workouts[action.payload.day].completed = false;
+
+      return newState;
     case SAVE_WORKOUT:
       newState = {...state};
 
